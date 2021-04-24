@@ -18,7 +18,7 @@ class inventoryModel
         #parametro a sustituir #dato de sustitucion #tipo de dato de sustitucion 
         $statement->bindParam(":idNombre", $datos["idNombre"], PDO::PARAM_INT);
         $statement->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-        $statement->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+        $statement->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_LOB);
         $statement->bindParam(":valor", $datos["valor"], PDO::PARAM_INT);
         $statement->bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
         if ($statement->execute()) {
