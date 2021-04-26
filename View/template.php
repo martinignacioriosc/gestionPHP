@@ -10,7 +10,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="View/style.css">
+    <link rel="stylesheet" type="text/css" href="View/style.css">
     <!-- Bootstrap 4.3.1 compiled and minified CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -28,6 +28,13 @@ session_start();
     <!--Latest compiled FontAwesome -->
     <script src="https://kit.fontawesome.com/e387528569.js" crossorigin="anonymous"></script>
 
+    <!-- AJAX n jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!--    Datatables  -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css" />
     <!-- Elementos de quiebre de pantalla -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -39,134 +46,140 @@ session_start();
 <body id="verticalMenu">
     <div class="sidebar-container">
         <div class="sidebar-logo">
-            Gestor de informacion
+            Organiza
         </div>
         <ul class="sidebar-navigation">
             <li class="header">Dashboard</li>
 
-            <?php if (isset($_GET["pagina"])) : ?>
-                <!-- CONDICIONAL PARA ENTRAR A PAGINA REGISTRO -->
-                <?php if ($_GET["pagina"] == "registro") : ?>
-                    <!-- Boton de registro para registrar informacion a base de datos -->
-                    <li>
-                        <a href="index.php?pagina=inicio">
-                            <i class="fa fa-home" aria-hidden="true"></i> Inicio
-                        </a>
-                    </li> <?php else : ?>
-                    <li>
-                        <a href="index.php?pagina=inicio">
-                            <i class="fa fa-home" aria-hidden="true"></i> Inicio
-                        </a>
-                    </li>
-                <?php endif ?>
-            <?php endif ?>
 
-            <li class="header">Mi cuenta</li>
-            <?php if (isset($_GET["pagina"])) : ?>
-                <!-- CONDICIONAL PARA ENTRAR A PAGINA REGISTRO -->
-                <?php if ($_GET["pagina"] == "profile") : ?>
-                    <!-- Boton de registro para registrar informacion a base de datos -->
-                    <li>
-                        <a href="index.php?pagina=profile">
-                            <i class="fa fa-user" aria-hidden="true"></i> Perfil
-                        </a>
-                    </li> <?php else : ?>
-                    <li>
-                        <a href="index.php?pagina=profile">
-                            <i class="fa fa-user" aria-hidden="true"></i> Perfil
-                        </a>
-                    </li>
-                <?php endif ?>
+            <li>
+                <a href="index.php?pagina=inicio">
+                    <i class="fa fa-home" aria-hidden="true"></i> Inicio
+                </a>
+            </li>
 
 
+            <li class="header">Organizacion</li>
 
-                <!-- CONDICIONAL PARA ENTRAR A PAGINA REGISTRO -->
-                <?php if ($_GET["pagina"] == "settings") : ?>
-                    <!-- Boton de registro para registrar informacion a base de datos -->
-                    <li>
-                        <a href="index.php?pagina=settings">
-                            <i class="fa fa-cog" aria-hidden="true"></i> Ajustes
-                        </a>
-                    </li> <?php else : ?>
-                    <li>
-                        <a href="index.php?pagina=settings">
-                            <i class="fa fa-cog" aria-hidden="true"></i> Ajustes
-                        </a>
-                    </li>
-                <?php endif ?>
-
-                <?php if ($_GET["pagina"] == "salir") : ?>
-                    <!-- Boton de registro para registrar informacion a base de datos -->
-                    <li>
-                        <a href="index.php?pagina=salir">
-                            <i class="fa fa-close" aria-hidden="true"></i> Logout
-                        </a>
-                    </li> <?php else : ?>
-                    <li>
-                        <a href="index.php?pagina=salir">
-                            <i class="fa fa-close" aria-hidden="true"></i> Logout
-                        </a>
-                    </li>
-                <?php endif ?>
-            <?php endif ?>
-
-
+            <li>
+                <a href="index.php?pagina=profile">
+                    <i class="fa fa-users" aria-hidden="true"></i> Clientes
+                </a>
+            </li>
+            <li>
+                <a href="index.php?pagina=profile">
+                    <i class="fa fa-calendar-check" aria-hidden="true"></i> Agenda
+                </a>
+            </li>
+            <li>
+                <a href="index.php?pagina=profile">
+                    <i class="fa fa-list-ul" aria-hidden="true"></i> To Do List
+                </a>
+            </li>
 
 
 
             <li class="header">Venta y servicio</li>
             <li>
-                <a href="index.php?pagina=inventario">
-                    <i class="fa fa-box-open" aria-hidden="true"></i> Productos
+                <a href="index.php?pagina=producto">
+                    <i class="fa fa-box-open" aria-hidden="true"></i> Venta producto
                 </a>
             </li>
             <li>
-                <a href="index.php?pagina=inventario">
-                    <i class="fa fa-handshake" aria-hidden="true"></i> Servicios
+                <a href="index.php?pagina=servicio">
+                    <i class="fa fa-handshake" aria-hidden="true"></i> Venta servicio
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="index.php?pagina=reporteVenta">
                     <i class="fa fa-chart-area" aria-hidden="true"></i> Reportes
                 </a>
             </li>
 
             <li class="header">COMPRA E INVENTARIO</li>
             <li>
-                <a href="#">
+                <a href="index.php?pagina=inventario">
                     <i class="fa fa-boxes" aria-hidden="true"></i> Inventario
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="index.php?pagina=historialInventario">
                     <i class="fa fa-history" aria-hidden="true"></i> Historial
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-plus-square" aria-hidden="true"></i> Agregar
                 </a>
             </li>
         </ul>
     </div>
 
-    <!--===============================
-     CONTENIDO
-    ================================-->
 
-    <div class="content-container">
 
-        <!--=======================================================
-        TOP BAR
-        ==========================================================-->
+
+
+
+    <div class="content-container pt-0 no-gutters">
+
 
         <!-- Ahora agregamos una barra de navegacion para dentro poner una botonera-->
-        <div class="container-fluid bg-light">
+        <div class="container-fluid bg-light" style="padding-left: 0; padding-right:0;  ">
+
+
+            <!--===============================
+            TOPBAR
+            ================================-->
+
+
+
+            <nav class="navbar navbar-expand-lg navbar-light mb-5" style="background-color: #2574A9;">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+
+
+
+
+
+
+
+
+
             <!-- Aqui escribimos la botonera de la barra de navegacion -->
-            <ul class="nav nav-justified py-2 nav-pills">
+            <ul class="nav nav-justified nav-pills">
 
                 <!-- Para que el sitio sea responsivo, debemos ubicar nuestro contenido dentro de contenedores -->
                 <div class="container-fluid">
+
+
+
+
+
+
+
+
+
+
+
+                    <!--===============================
+                    CONTENIDO
+                    ================================-->
                     <!-- py = padding y -->
                     <!-- Llamo  a mi pagina inicio.php, con la funcion include() -->
                     <?php
@@ -189,10 +202,22 @@ session_start();
 
 
                             /*==================================================
-                                COMPRA
-                                ==================================================*/
+                            VENTA
+                            ==================================================*/
                         } else if (
-                            $_GET["pagina"] == "inventario"
+                            $_GET["pagina"] == "producto" ||
+                            $_GET["pagina"] == "servicio" ||
+                            $_GET["pagina"] == "reporteVenta"
+                        ) {
+                            include "venta/" . $_GET["pagina"] . ".php";
+
+
+                            /*==================================================
+                            COMPRA
+                            ==================================================*/
+                        } else if (
+                            $_GET["pagina"] == "inventario" ||
+                            $_GET["pagina"] == "historialInventario"
                         ) {
                             include "compra/" . $_GET["pagina"] . ".php";
 

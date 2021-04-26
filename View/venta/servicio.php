@@ -1,21 +1,3 @@
-<?php
-
-if (!isset($_SESSION["validarIngreso"])) {
-    echo '<script> 
-    window.location = "index.php?pagina=ingreso";
-    </script>';
-    return;
-} else {
-    if ($_SESSION["validarIngreso"] != "ok") {
-        echo '<script> 
-        window.location = "index.php?pagina=ingreso";
-        </script>';
-        return;
-    }
-}
-
-
-?>
 <div class="container-fluid">
     <div class="row justify-content-center">
 
@@ -24,16 +6,20 @@ if (!isset($_SESSION["validarIngreso"])) {
 
         <form action="" method="post" class="form bg-white p-5" id="examplef">
             <div class="row ">
+
                 <div class="col">
                     <label for="nombre">Nombre producto: </label>
                     <input type="text" name="nombre" id="nombre" class="form-control" placeholder="">
                 </div>
 
+
                 <div class="col">
                     <label for="descripcion">Descripcion: </label>
                     <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="">
                 </div>
+
             </div>
+            
             <div class="row ">
                 <div class="col-4">
                     <label for="valor">Valor: </label>
